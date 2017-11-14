@@ -5,6 +5,8 @@ class Profiles extends Component {
     constructor (props) {
 		super();
 		
+		// Nie wiem jakie ostatecznie elementy będą w local storage więc wrzucilem losowe//
+		
 		this.state = {
 			users: [
 			    {
@@ -52,12 +54,15 @@ class Profiles extends Component {
 			
 		}
 	}
-  
+	
+	
   
     render() {
         return (
-            <div className="Profiles">
-              
+            <div>
+			    <div>
+				    <h1>{this.props.title}</h1>
+				</div>              
             </div>
         );
     }
