@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './Profiles.css';
+import './ProfileList.css';
+import ProfileListItem from "./ProfileListItem";
 
-class Profiles extends Component {
+class ProfileList extends Component {
     constructor (props) {
 		super();
 		
@@ -55,17 +56,38 @@ class Profiles extends Component {
 		}
 	}
 	
+
 	
   
     render() {
-        return (
+        
+		/* generuje instancje komponentu ProfileListItem dla każdego obiektu users */
+		
+		var profiles = this.state.users.map(function(user, index){
+
+					return (
+					
+					    <ProfileListItem 
+						    className="ProfileListItem" 
+							{...user} key={index}>
+					    
+						</ProfileListItem>
+
+				    );
+				});
+		
+		
+		return (
             <div>
 			    <div>
 				    <h1>{this.props.title}</h1>
-				</div>              
+				</div> 
+				<div>
+				    {profiles}
+				</div>
             </div>
         );
     }
 }
 
-export default Profiles;
+export default ProfileList;

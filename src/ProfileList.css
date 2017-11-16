@@ -1,28 +1,28 @@
-.Profiles {
+.ProfileList {
   text-align: center;
 }
 
-.Profiles-logo {
+.ProfileList-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 
-.Profiles-header {
+.ProfileList-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
 }
 
-.Profiles-title {
+.ProfileList-title {
   font-size: 1.5em;
 }
 
-.Profiles-intro {
+.ProfileList-intro {
   font-size: large;
 }
 
-@keyframes Profiles-logo-spin {
+@keyframes ProfileList-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
