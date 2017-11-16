@@ -9,7 +9,7 @@ class ProfileList extends Component {
 		// Nie wiem jakie ostatecznie elementy będą w local storage więc wrzucilem losowe//
 		
 		this.state = {
-			users: [
+			profiles: [
 			    {
 				    id: "1",
 					name: "Tomek",
@@ -63,13 +63,13 @@ class ProfileList extends Component {
         
 		/* generuje instancje komponentu ProfileListItem dla każdego obiektu users */
 		
-		var profiles = this.state.users.map(function(user, index){
+		var users = this.state.profiles.map(function(profile, index){
 
 					return (
 					
 					    <ProfileListItem 
 						    className="ProfileListItem" 
-							{...user} key={index}>
+							{...profile} key={index}>
 					    
 						</ProfileListItem>
 
@@ -83,7 +83,7 @@ class ProfileList extends Component {
 				    <h1>{this.props.title}</h1>
 				</div> 
 				<div>
-				    {profiles}
+				    {users}
 				</div>
             </div>
         );
