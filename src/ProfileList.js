@@ -4,10 +4,11 @@ import ProfileListItem from "./ProfileListItem";
 
 class ProfileList extends Component {
     constructor (props) {
-		super();
-		
+		super(props);
+    // W dokumentacji jest, że trzeba zbindować handler do this. Będę musiał Cię prosić o wytłumaczenie mi tego na ludzki język :)
+    this.addProfile = this.addProfile.bind(this);
 		// Nie wiem jakie ostatecznie elementy będą w local storage więc wrzucilem losowe//
-		
+
 		this.state = {
 			profiles: [
 			    {
@@ -51,41 +52,50 @@ class ProfileList extends Component {
 					email: "asa@fsfs.pl"
 				},
 			]
-				
-			
-		}
-	}
-	
 
-	
-  
+      }
+    }
+
+    // Dodaje nowy profil do stanu komponentu p wciśnięciu buttonu
+    addProfile() {
+      var newItem = [{id: "9", name: "Łukasz", email: "asadada"}];
+      var newState = this.state.profiles.concat(newItem);
+      this.setState({profiles: newState})
+    }
+
     render() {
-        
+
 		/* generuje instancje komponentu ProfileListItem dla każdego obiektu users */
-		
+
 		var users = this.state.profiles.map(function(profile, index){
 
 					return (
-					
-					    <ProfileListItem 
-						    className="ProfileListItem" 
+
+					    <ProfileListItem
+						    className="ProfileListItem"
 							{...profile} key={index}>
-					    
-						</ProfileListItem>
+
+						  </ProfileListItem>
 
 				    );
 				});
-		
-		
+
+
 		return (
             <div>
 			    <div>
 				    <h1>{this.props.title}</h1>
-				</div> 
+				</div>
 				<div>
 				    {users}
 				</div>
-            </div>
+
+          <input
+					     type="button"
+					     value="Add Profile"
+					     onClick={this.addProfile}
+				   />
+        </div>
         );
     }
 }
